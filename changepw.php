@@ -27,6 +27,7 @@
                 $oldpassword=$_POST['oldpassword'];
                 $newpassword=$_POST['newpassword'];
 
+                if($oldpassword!= ""){
                 if($oldpassword == $password)
                 {
                     $q = "update user set password = $newpassword where id = $id;";
@@ -43,8 +44,9 @@
                         header("refresh:0;url=welcome.html");
                          echo "<script type=\"text/javascript\">"."alert('saved');"."</script>";
                     }
+                }
                }
             ?>
-        <a href="welcome.html">back</a>
+        <a href="index.html">back</a>
     </body>
 </html>
