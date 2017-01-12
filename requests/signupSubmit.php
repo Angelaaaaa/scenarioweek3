@@ -20,7 +20,7 @@
     else
     {
         
-        header("refresh:0;url=login.html");
+        header("refresh:0;url=../login.php");
          echo "<script type=\"text/javascript\">".
         "alert('sign up successfully');".
         "</script>";
