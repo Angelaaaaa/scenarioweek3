@@ -3,9 +3,24 @@
     <head>
         <meta charset="UTF-8">
         <title>profile</title>
-    </head>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
+<link rel="stylesheet" href="assets/css/main.css?<?php echo time(); ?>" />    </head>
     <body>
-        <h1>profile</h1>
+    <div id="wrapper">
+    <nav id="nav">
+            <ul>
+               <li><a href="index.php">Home</a></li>&emsp;&emsp;
+               <li><a href="profile.php">personal profile</a></li>&emsp;&emsp;
+               <li><a href="changepw.php">change password</a></li>&emsp;&emsp;
+               <li><a href="snippet.php">snippet</a></li>
+               &emsp;&emsp;
+               <li><a href="upload.php">upload</a></li>
+               <li style="float:right; margin-right: 2em;"><a href="login.php">logout</a></li>
+          </ul>
+          </nav>
+          <h1 style="text-align:center; margin-top: 1em;">Change Your Password</h1>
+    <section id="main">
 
         	<?PHP
                 header("Content-Type: text/html; charset=utf8");
@@ -48,5 +63,7 @@
                }
             ?>
         <a href="index.html">back</a>
+        </section>
+        </div>
     </body>
 </html>
