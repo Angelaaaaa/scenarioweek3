@@ -49,11 +49,10 @@ $('.button').click(function() {
 	}
 	else
 	{
-		echo "<a href='signup.html'><p>signup</p></a>
-		<a href='login.php'><p>login</p></a>";
+		echo "<ul><li><a href='signup.html'><p>signup</p></a></li>
+		<li><a href='login.php'><p>login</p></a></li></ul>";
 	}
 	?>
-</div>
 <section id="main">
 
 <?php
@@ -102,5 +101,6 @@ $f1=mysql_result($result,$i,"username");
 ?>
 </table>
 </section>
+</div>
 </body>
 </html>
