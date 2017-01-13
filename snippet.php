@@ -37,7 +37,7 @@
  		
             </script>
 	<?php
-	echo "inside php function\n";
+	// echo "inside php function\n";
 
     $server="127.0.0.1:3306";
     $db_username="root";

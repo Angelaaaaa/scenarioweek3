@@ -62,7 +62,7 @@
                 }
                }
             ?>
-        <a href="index.html">back</a>
+        <a href="index.php">back</a>
         </section>
         </div>
     </body>
