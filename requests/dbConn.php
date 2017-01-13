@@ -1,6 +1,6 @@
 <?php
-
     $server="127.0.0.1:3306";
+//    $server="178.62.6.69:3306";
     $db_username="root";
     $db_password="Qwe123";
 
@@ -9,5 +9,6 @@
     {
         die("can't connect".mysql_error());
     }
-    mysql_select_db('security',$con);
+    mysql_select_db('userdb',$con);
+    echo "Connection Succesful!\n".mysql_error();
 ?>
