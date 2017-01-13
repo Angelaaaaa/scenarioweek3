@@ -54,6 +54,6 @@
             }
         ?>
 
-     <a href="indexx.html">back</a>
+     <a href="index.html">back</a>
     </body>
 </html>
