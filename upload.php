@@ -4,9 +4,31 @@ session_start();
 <html>  
 <head>  
 <title>Upload File</title>  
+<<<<<<< HEAD
 </head>  
 <body>
 <form action="" enctype="multipart/form-data" method="post" name="uploadfile">Upload file：<input type="file" name="upfile" /><br> 
+=======
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
+<link rel="stylesheet" href="assets/css/main.css?<?php echo time(); ?>" /></head>  
+<body>
+<div id="wrapper">
+<nav id="nav">
+            <ul>            
+               <li><a href="index.php">Home</a></li>&emsp;&emsp;
+               <li><a href="profile.php">personal profile</a></li>&emsp;&emsp;
+               <li><a href="changepw.php">change password</a></li>&emsp;&emsp;
+               <li><a href="snippet.php">snippet</a></li>
+               &emsp;&emsp;
+               <li><a href="upload.php">upload</a></li>
+               <li style="float:right; margin-right: 2em;"><a href="login.php">logout</a></li>
+          </ul>
+          </nav>
+          <h1 style="text-align:center; margin-top: 1em;">Upload Files</h1>
+<section id="main">
+<form action="" enctype="multipart/form-data" method="post" name="uploadfile">Upload file：<input type="file" name="upfile" /><br><br> 
+>>>>>>> a680fa670a22ba9b7e191ab97118d79db6e58b0b
 <input type="submit" value="Upload" /></form> 
 <?php 
 // $okType= false;
@@ -22,7 +44,11 @@ $type=$upfile["type"];//Upload file type
 $size=$upfile["size"];//Upload file size
 $tmp_name=$upfile["tmp_name"];//Upload file temparary path
 echo " $tmp_name";
+<<<<<<< HEAD
 $tmp_name = "Documents/UCL/SEII/Testing";
+=======
+$tmp_name = "/var/www/html/scenarioweek3Data";
+>>>>>>> a680fa670a22ba9b7e191ab97118d79db6e58b0b
 //check if img 
 switch ($type){ 
 case 'image/pjpeg':$okType=true; 
@@ -62,8 +88,13 @@ $destination="upload/".$name;
 // echo "Upload Information：<br/>"; 
 if($error==0){ 
 echo "<br>Upload successfully！"; 
+<<<<<<< HEAD
 echo "<br>Preview:<br>"; 
 echo "<img src=".$destination.">"; 
+=======
+// echo "<br>Preview:<br>"; 
+// echo "<img src=".$destination.">"; 
+>>>>>>> a680fa670a22ba9b7e191ab97118d79db6e58b0b
 //echo " alt=\"图片预览:\r文件名:".$destination."\rUpload时间:\">"; 
 }elseif ($error==1){ 
 echo "Exceed file size, set in php.ini file"; 
@@ -81,5 +112,10 @@ echo "Unrecognized type！";
 } 
 } 
 ?>  
+<<<<<<< HEAD
+=======
+</section>
+</div>
+>>>>>>> a680fa670a22ba9b7e191ab97118d79db6e58b0b
 </body>  
 </html>
