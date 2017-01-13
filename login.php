@@ -8,8 +8,15 @@
         <!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
 <link rel="stylesheet" href="assets/css/main.css?<?php echo time(); ?>" />    </head>
     <body>
-                <h1 style="text-align:center; margin-top: 1em;">Log in</h1>
+              
         <div id="wrapper">
+        <nav id="nav">
+            <ul>
+            <li><a href='signup.html'>signup</a></li>
+            <li><a href='login.php'>login</a></li>
+            </ul>
+            </nav>
+              <h1 style="text-align:center; margin-top: 1em;">Log in</h1>
         <section id="main">
 
         <form name="login" action="requests/loginSubmit.php" method="post">

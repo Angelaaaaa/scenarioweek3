@@ -10,6 +10,7 @@
     <div id="wrapper">
     <nav id="nav">
             <ul>
+               <li><a href="index.php">Home</a></li>&emsp;&emsp;
                <li><a href="profile.php">personal profile</a></li>&emsp;&emsp;
                <li><a href="changepw.php">change password</a></li>&emsp;&emsp;
                <li><a href="snippet.php">snippet</a></li>

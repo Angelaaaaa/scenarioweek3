@@ -7,22 +7,29 @@
         <!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
 <link rel="stylesheet" href="assets/css/main.css?<?php echo time(); ?>" />    </head>
     <body>
-                <h1 style="text-align:center; margin-top: 1em;">Registration</h1>
+               
       <div id="wrapper">
+          <nav id="nav">
+            <ul>
+            <li><a href='signup.html'>signup</a></li>
+            <li><a href='login.php'>login</a></li>
+            </ul>
+            </nav>
+             <h1 style="text-align:center; margin-top: 1em;">Registration</h1>
         <section id="main">
-        <form action="requests/signupSubmit.php" method="post">
-            <p>login name:
-            <div class="field">
-            <input type="text" name="name"></p>
-            </div>
-            <p>password:             
-            <div class="field">
-            <input type="text" name="password"></p>
-            </div>
-            <p><div class="field">
-            <input type="submit" name="submit" value="registration"></p>
-            </div>
-        </form>
+            <form action="requests/signupSubmit.php" method="post">
+                <p>login name:
+                <div class="field">
+                <input type="text" name="name"></p>
+                </div>
+                <p>password:             
+                <div class="field">
+                <input type="text" name="password"></p>
+                </div>
+                <p><div class="field">
+                <input type="submit" name="submit" value="registration"></p>
+                </div>
+            </form>
         </section>
       </div>
     </body>
