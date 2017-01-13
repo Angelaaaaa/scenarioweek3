@@ -4,13 +4,32 @@
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	 <meta charset="UTF-8">
          <title>login success</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="assets/css/main.css" />
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+li {
+    display: inline;
+}
+</style>
     </head>
-    <body>
-        <div>
-        <a href="profile.php">personal profile</a>
-         <a href="changepw.php">change password</a>
-         <a href="snippet.php">snippet</a>
-        <a href="login.html">logout</a>
+    <body class="is-loading">
+        <div id="wrapper">
+          <nav id="nav">
+          <section id="main">
+            <ul>
+               <li><a href="profile.php">personal profile</a></li>
+               <li><a href="changepw.php">change password</a></li>
+               <li><a href="snippet.php">snippet</a></li>
+               <li><a href="login.html">logout</a></li>
+          </ul>
+          </nav>
+          </section>
         </div>
 
         <div>

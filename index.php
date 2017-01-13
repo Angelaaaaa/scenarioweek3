@@ -1,7 +1,11 @@
 <!doctype html>
 <html>
 <head>
-<script>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+<!-- <script>
 $('.button').click(function() {
 
  $.ajax({
@@ -13,9 +17,12 @@ $('.button').click(function() {
 });    
 
     });
-</script>
+</script> -->
 </head>
 <body>
+<div id="wrapper">
+
+<section id="main">
 	<?php 
 	session_start();
 	$a = $_SESSION['views'];
@@ -31,9 +38,11 @@ $('.button').click(function() {
 	else
 	{
 		echo "<a href='signup.html'><p>signup</p></a>
-		<a href='login.html'><p>login</p></a>";
+		<a href='login.php'><p>login</p></a>";
 	}
 	?>
+</section>
+</div>
 <?php
 include('connect.php');
 $query="select username, date, text
@@ -48,12 +57,13 @@ mysql_close();
 
 ?>
 
-<tr>
+
 <table border="0" cellspacing="2" cellpadding="2">
 <tr>
 <td>
 <font face="Arial, Helvetica, sans-serif">Username</font>
 </td>
+&nbsp;
 <td>
 <font face="Arial, Helvetica, sans-serif">Snippet</font>
 </td>
@@ -77,6 +87,7 @@ $f1=mysql_result($result,$i,"username");
  </tr>
 <?php $i++;}
 ?>
-
+</table>
+</section>
 </body>
 </html>
