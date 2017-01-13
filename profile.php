@@ -3,9 +3,13 @@
     <head>
         <meta charset="UTF-8">
         <title>profile</title>
-    </head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
+<link rel="stylesheet" href="assets/css/main.css?<?php echo time(); ?>" />    </head>
     <body>
-        <h1>profile</h1>
+            <h1 style="text-align:center; margin-top: 1em;">profile</h1>
+    <div id="wrapper">
+      <section id="main">
     	<?PHP
             header("Content-Type: text/html; charset=utf8");
           	session_start();
@@ -55,5 +59,7 @@
         ?>
 
      <a href="index.html">back</a>
+     </section>
+     </div>
     </body>
 </html>

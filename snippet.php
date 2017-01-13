@@ -6,22 +6,24 @@
          <title>login success</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
-        <link rel="stylesheet" href="assets/css/main.css" />
-<style>
+<link rel="stylesheet" href="assets/css/main.css?<?php echo time(); ?>" /><style>
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    overflow: hidden;
+    position:relative;
+    top:0;
+    width: 100%;
 }
 li {
     display: inline;
 }
 </style>
     </head>
-    <body class="is-loading">
+    <body>
         <div id="wrapper">
           <nav id="nav">
-          <section id="main">
             <ul>
                <li><a href="profile.php">personal profile</a></li>
                <li><a href="changepw.php">change password</a></li>
@@ -29,10 +31,8 @@ li {
                <li><a href="login.html">logout</a></li>
           </ul>
           </nav>
-          </section>
-        </div>
-
         <div>
+          <section id="main">
             <script>
 
             $.post("requests/getSnippet.php",
@@ -64,9 +64,9 @@ li {
 	echo $row['text'].'&#09;';
 	}
 	?>
-
+</section>
         </div>
 
-
+</div>
     </body>
 </html>

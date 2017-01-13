@@ -4,8 +4,12 @@ session_start();
 <html>  
 <head>  
 <title>Upload File</title>  
-</head>  
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
+<link rel="stylesheet" href="assets/css/main.css?<?php echo time(); ?>" /></head>  
 <body>
+<div id="wrapper">
+<section id="main">
 <form action="" enctype="multipart/form-data" method="post" name="uploadfile">Upload file：<input type="file" name="upfile" /><br> 
 <input type="submit" value="Upload" /></form> 
 <?php 
@@ -81,5 +85,7 @@ echo "Unrecognized type！";
 } 
 } 
 ?>  
+</section>
+</div>
 </body>  
 </html>

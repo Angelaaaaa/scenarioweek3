@@ -3,8 +3,21 @@
 <head>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-
+		<link rel="stylesheet" href="assets/css/main.css?<?php echo time(); ?>" />
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position:relative;
+    top:0;
+    width: 100%;
+}
+li {
+    display: inline;
+}
+</style>
 <!-- <script>
 $('.button').click(function() {
 
@@ -22,7 +35,6 @@ $('.button').click(function() {
 <body>
 <div id="wrapper">
 
-<section id="main">
 	<?php 
 	session_start();
 	$a = $_SESSION['views'];
@@ -41,8 +53,9 @@ $('.button').click(function() {
 		<a href='login.php'><p>login</p></a>";
 	}
 	?>
-</section>
 </div>
+<section id="main">
+
 <?php
 include('connect.php');
 $query="select username, date, text

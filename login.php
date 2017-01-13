@@ -6,9 +6,9 @@
         <title>log in</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
-        <link rel="stylesheet" href="assets/css/main.css" />
-    </head>
+<link rel="stylesheet" href="assets/css/main.css?<?php echo time(); ?>" />    </head>
     <body>
+                <h1 style="text-align:center; margin-top: 1em;">Log in</h1>
         <div id="wrapper">
         <section id="main">
 
