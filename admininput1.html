@@ -21,22 +21,19 @@
     {
         
 
-        // echo $_POST['username'];
-
         $id =  mysql_result($result,$i,"id");
-        $username=checknull($_POST['$i'.'username']);
-        $password=checknull($_POST['password'][$i]);
-        $color=checknull($_POST['color']);
-        $iconURL=checknull($_POST['iconURL']);
-        $pageURL=checknull($_POST['pageURL']);
-        $snippet=checknull($_POST['snippet']);
-        $cancelSnippet=checknull($_POST['cancelSnippet']);
-
-    echo "$i" ."username";
+        $username=$_POST['username'][$i];
+        $password=$_POST['password'][$i];
+        $color=$_POST['color'][$i];
+        $iconURL=$_POST['iconURL'][$i];
+        $pageURL=$_POST['pageURL'][$i];
+        $snippet=$_POST['snippet'][$i];
+        $cancelSnippet=$_POST['cancelSnippet'][$i];
+        $isAdmin = $_POST['isAdmin'][$i];
   
 
         
-    $q="update user set username = $username, iconURL = $iconURL, pageURL = $pageURL, snippet = $snippet, color = $color, cancelSnippet = $cancelSnippet WHERE id = $id;";//向数据库插入表单传来的值的sql
+    $q="update user set password = '$password', username = '$username', iconURL = '$iconURL', pageURL = '$pageURL', snippet = '$snippet', color = '$color', cancelSnippet = '$cancelSnippet', isAdmin = $isAdmin WHERE id = $id;";//向数据库插入表单传来的值的sql
     $dbresult=mysql_query($q,$con);;//执行sql
     // echo "$result";
 
@@ -48,34 +45,32 @@
     //     // echo "registration successful";//成功输出注册成功
     //     header("refresh:0;url=admin.php");
 
-    //      echo "<script type=\"text/javascript\">".
-    //     "alert('sign up successfully');".
-    //     "</script>";
+        //  echo "<script type=\"text/javascript\">".
+        // "alert('sign up successfully');".
+        // "</script>";
     // }
 
     $i++;
     }
 
      
-function checknull($check)
-{
-    if ($check === "")
-        return "NULL";
-    else
-        return $check;
-}
+// function checknull($check)
+// {
+//     if ($check == "")
+//         return "";
+//     else
+//         return $check;
+// }
     
     
-
-
-
-
-
-
-
+        // echo "registration successful";//成功输出注册成功
     mysql_close($con);//关闭数据库
     
+       header("refresh:0;url=admin1.php");
 
+       //   echo "<script type=\"text/javascript\">".
+       //  "alert('sign up successfully');".
+       //  "</script>";
 
 
 ?>
