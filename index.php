@@ -49,8 +49,8 @@ $('.button').click(function() {
 	}
 	else
 	{
-		echo "<ul><li><a href='signup.html'><p>signup</p></a></li>
-		<li><a href='login.php'><p>login</p></a></li></ul>";
+		echo "<ul><li><a href='signup.html'>signup</a></li>
+		<li><a href='login.php'>login</a></li></ul>";
 	}
 	?>
 <section id="main">
