@@ -6,31 +6,22 @@
          <title>login success</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
-<link rel="stylesheet" href="assets/css/main.css?<?php echo time(); ?>" /><style>
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    position:relative;
-    top:0;
-    width: 100%;
-}
-li {
-    display: inline;
-}
+<link rel="stylesheet" href="assets/css/main.css?<?php echo time(); ?>" />
 </style>
     </head>
     <body>
         <div id="wrapper">
           <nav id="nav">
             <ul>
-               <li><a href="profile.php">personal profile</a></li>
-               <li><a href="changepw.php">change password</a></li>
+               <li><a href="profile.php">personal profile</a></li>&emsp;&emsp;
+               <li><a href="changepw.php">change password</a></li>&emsp;&emsp;
                <li><a href="snippet.php">snippet</a></li>
-               <li><a href="login.html">logout</a></li>
+               &emsp;&emsp;
+               <li><a href="upload.php">upload</a></li>
+               <li style="float:right; margin-right: 2em;"><a href="login.php">logout</a></li>
           </ul>
           </nav>
+          <h1 style="text-align:center; margin-top: 1em;">Your Snippets</h1>
         <div>
           <section id="main">
             <script>

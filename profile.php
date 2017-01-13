@@ -7,8 +7,19 @@
         <!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
 <link rel="stylesheet" href="assets/css/main.css?<?php echo time(); ?>" />    </head>
     <body>
-            <h1 style="text-align:center; margin-top: 1em;">profile</h1>
+
     <div id="wrapper">
+          <nav id="nav">
+            <ul>
+               <li><a href="profile.php">personal profile</a></li>&emsp;&emsp;
+               <li><a href="changepw.php">change password</a></li>&emsp;&emsp;
+               <li><a href="snippet.php">snippet</a></li>
+               &emsp;&emsp;
+               <li><a href="upload.php">upload</a></li>
+               <li style="float:right; margin-right: 2em;"><a href="login.php">logout</a></li>
+          </ul>
+          </nav>
+        <h1 style="text-align:center; margin-top: 1em;">profile</h1>
       <section id="main">
     	<?PHP
             header("Content-Type: text/html; charset=utf8");

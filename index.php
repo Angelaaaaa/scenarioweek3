@@ -7,15 +7,18 @@
 <style>
 ul {
     list-style-type: none;
-    margin: 0;
+    margin-left: 1em;
+    margin-top: 1em;
     padding: 0;
     overflow: hidden;
-    position:relative;
+    position:fixed;
     top:0;
+    left:0;
     width: 100%;
 }
 li {
     display: inline;
+    font-weight: bold;
 }
 </style>
 <!-- <script>
@@ -42,10 +45,15 @@ $('.button').click(function() {
 
 	if ($_SESSION["views"]){
 		echo    
-		'<a href="profile.php">personal profile</a>
-         <a href="changepw.php">change password</a>
-         <a href="snippet.php">snippet</a>
-        <a href="logout.php">logout</a>';
+		'<nav id="nav">
+		<ul>
+		 <li><a href="profile.php">personal profile</a></li>&emsp;&emsp;
+         <li><a href="changepw.php">change password</a></li>&emsp;&emsp;
+         <li><a href="snippet.php">snippet</a></li>&emsp;&emsp;
+         <li><a href="upload.php">upload</a></li>
+        <li style="float:right; margin-right:2em;"><a href="logout.php">logout</a></li>
+        </ul>
+        </nav>';
 	}
 	else
 	{
