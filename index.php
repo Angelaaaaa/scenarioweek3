@@ -74,9 +74,9 @@
 		            <td>
 		                <font face="Arial, Helvetica, sans-serif"> uploaded files&emsp;&emsp;</font>
 		            </td>
-                    <td>
+                    <!-- <td>
                         <font face="Arial, Helvetica, sans-serif">Homepage</font>
-                    </td>
+                    </td> -->
 		        </tr>
 		        <?php
 		            $i=0;
@@ -84,7 +84,7 @@
 		            {
 
                     // f5 :  home url
-                        $f5="\"http://178.62.6.69/unsafe/upload.php?userID=".mysql_result($result,$i,"userID")."\"";
+                        // $f5="\"http://178.62.6.69/unsafe/upload.php?userID=".mysql_result($result,$i,"userID")."\"";
 				        $f4="\"http://178.62.6.69/unsafe/upload.php?userID=".mysql_result($result,$i,"userID")."\"";
 
 		                $f3="\"http://178.62.6.69/unsafe/snippet.php?userID=".mysql_result($result,$i,"userID")."\"";
@@ -104,9 +104,9 @@
 		            <td>
 		                <a href=<?php echo $f4; ?>>Files</a>
 		            </td>
-                    <td>
+                    <!-- <td>
                         <a href=<?php echo $f5; ?>>Homepage</a>
-                    </td>
+                    </td> -->
 
 		        </tr>
 		        <?php
