@@ -8,17 +8,30 @@
 <link rel="stylesheet" href="assets/css/main.css?<?php echo time(); ?>" />    </head>
     <body>
     <div id="wrapper">
-    <nav id="nav">
-            <ul>
-               <li><a href="index.php">Home</a></li>&emsp;&emsp;
-               <li><a href="profile.php">personal profile</a></li>&emsp;&emsp;
-               <li><a href="changepw.php">change password</a></li>&emsp;&emsp;
-               <li><a href="snippet.php">snippet</a></li>
-               &emsp;&emsp;
-               <li><a href="upload.php">upload</a></li>
-               <li style="float:right; margin-right: 2em;"><a href="login.php">logout</a></li>
-          </ul>
-          </nav>
+     <?php
+        session_start();
+        $a = $_SESSION['views'];
+
+        if ($_SESSION["views"]){
+                echo
+                '<nav id="nav">
+                <ul>
+                 <li><a href="index.php">Home</a></li>&emsp;&emsp;
+                 <li><a href="profile.php?userID='.$a.'">personal profile</a></li>&emsp;&emsp;
+         <li><a href="changepw.php?userID='.$a.'">change password</a></li>&emsp;&emsp;
+         <li><a href="snippet.php?userID='.$a.'">snippet</a></li>&emsp;&emsp;
+         <li><a href="upload.php?userID='.$a.'">upload</a></li>
+         <li><a href="admin.php?userID='.$a.'">Admin</a></li>
+        <li style="float:right; margin-right:2em;"><a href="logout.php">logout</a></li>
+        </ul>
+        </nav>';
+        }
+        else
+        {
+                echo "<ul><li><a href='signup.html'>signup</a></li>
+                <li><a href='login.php'>login</a></li></ul>";
+        }
+        ?>
           <h1 style="text-align:center; margin-top: 1em;">Change Your Password</h1>
     <section id="main">
 
@@ -26,7 +39,6 @@
                 header("Content-Type: text/html; charset=utf8");
               	session_start();
             	$id =$_SESSION['views'];
-                include('connect.php');//connect database
                 $sql = "select * from user where id = $id";
                 $result = mysql_query($sql);
                 $array = mysql_fetch_array($result);//
@@ -56,7 +68,7 @@
                     else
                     {
                         // echo "registration successful";
-                        header("refresh:0;url=welcome.html");
+                        header("refresh:0;url=index.html");
                          echo "<script type=\"text/javascript\">"."alert('saved');"."</script>";
                     }
                 }

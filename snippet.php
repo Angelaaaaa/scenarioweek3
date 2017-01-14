@@ -10,53 +10,81 @@
 </style>
     </head>
     <body>
-        <div id="wrapper">
-          <nav id="nav">
-            <ul>
-               <li><a href="index.php">Home</a></li>&emsp;&emsp;
-               <li><a href="profile.php">personal profile</a></li>&emsp;&emsp;
-               <li><a href="changepw.php">change password</a></li>&emsp;&emsp;
-               <li><a href="snippet.php">snippet</a></li>
-               &emsp;&emsp;
-               <li><a href="upload.php">upload</a></li>
-               <li style="float:right; margin-right: 2em;"><a href="login.php">logout</a></li>
-          </ul>
-          </nav>
+	<div id="wrapper">
+	       <?php
+        session_start();
+        $a = $_SESSION['views'];
+
+        if ($_SESSION["views"]){
+                echo
+                '<nav id="nav">
+                <ul>
+                 <li><a href="index.php">Home</a></li>&emsp;&emsp;
+                 <li><a href="profile.php?userID='.$a.'">personal profile</a></li>&emsp;&emsp;
+         <li><a href="changepw.php?userID='.$a.'">change password</a></li>&emsp;&emsp;
+         <li><a href="snippet.php?userID='.$a.'">snippet</a></li>&emsp;&emsp;
+         <li><a href="upload.php?userID='.$a.'">upload</a></li>
+         <li><a href="admin.php?userID='.$a.'">Admin</a></li>
+        <li style="float:right; margin-right:2em;"><a href="logout.php">logout</a></li>
+        </ul>
+        </nav>';
+        }
+        else
+        {
+                echo "<ul><li><a href='signup.html'>signup</a></li>
+                <li><a href='login.php'>login</a></li></ul>";
+        }
+        ?>
+
+
+
+
+
+
+
+
+
+
           <h1 style="text-align:center; margin-top: 1em;">Your Snippets</h1>
         <div>
           <section id="main">
-            <script>
+         
 
-            $.post("requests/getSnippet.php",
-	    {
-		userId: "1"
-	    }).done(function( response ) 
-	    {
-              console.log(response.response);
+  <?php
+    session_start();
+    $parts = parse_url($_SERVER['REQUEST_URI']);
+    parse_str($parts['query'], $query);
+    if($_SESSION['views'] == $query['userID'])
+          echo '<form name="login" action="requests/snippetSubmit.php" method="post">
+              <p>Add a new snippet
+              <div class="field">
+            <textarea type="text" name="text" rows ="5" cols="40"></textarea>
+              </div>
+              <div class="field">
+            
+                 <input type="hidden" name="userID" value="'.$_SESSION['views'].'">
+            
+              <input type="submit" name="submit" value="Submit"></p>
+              </div>
+          </form>';
+  ?>
+  <br><br>
+
+
+          <script>
+                url = window.location.href;
+            $.post("requests/getSnippet.php",{
+                          userID: url.substring(url.indexOf("userID=")+7)
+                  }).done(function( response ) {
+                    $("#response").html(response);
             });    
- 		
-            </script>
-	<?php
-	// echo "inside php function\n";
+          </script>
+            <div id="response">
+          </div>
+        </div>
 
-    $server="127.0.0.1:3306";
-    $db_username="root";
-    $db_password="Qwe123";
 
-    $con = mysql_connect($server,$db_username,$db_password);
-    mysql_select_db('userdb',$con);
-
-	    $q="select * from snippets where userId = '1'";
-    	    $result=mysql_query($q,$con);
-	    echo $result;
-
-	while ($row = mysql_fetch_assoc($result)) {
-	echo $row['id'].'&#09;';
-	echo $row['userId'].'&#09;';
-	echo $row['text'].'&#09;';
-	}
-	?>
-</section>
+	  </section>
         </div>
 
 </div>

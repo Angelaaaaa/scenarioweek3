@@ -1,6 +1,9 @@
 <!doctype html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
+<link rel="stylesheet" href="assets/css/main.css?<?php echo time(); ?>" />
 <script>
 // $('.button').click(function() {
 
@@ -16,27 +19,36 @@
 </script>
 </head>
 <body>
-    <?php 
-    session_start();
-    $a = $_SESSION['views'];
-    echo "$a";
+    <div id="wrapper">
+         <?php
+        session_start();
+        $a = $_SESSION['views'];
 
-    if ($_SESSION["views"]){
-        echo    
-        '<a href="profile.php">personal profile</a>
-         <a href="changepw.php">change password</a>
-         <a href="snippet.php">snippet</a>
-        <a href="logout.php">logout</a>';
-    }
-    else
-    {
-        echo "<a href='signup.html'><p>signup</p></a>
-        <a href='login.html'><p>login</p></a>";
-    }
-    ?>
+        if ($_SESSION["views"]){
+                echo
+                '<nav id="nav">
+                <ul>
+                 <li><a href="index.php">Home</a></li>&emsp;&emsp;
+                 <li><a href="profile.php?userID='.$a.'">personal profile</a></li>&emsp;&emsp;
+         <li><a href="changepw.php?userID='.$a.'">change password</a></li>&emsp;&emsp;
+         <li><a href="snippet.php?userID='.$a.'">snippet</a></li>&emsp;&emsp;
+         <li><a href="upload.php?userID='.$a.'">upload</a></li>
+         <li><a href="admin.php?userID='.$a.'">Admin</a></li>
+        <li style="float:right; margin-right:2em;"><a href="logout.php">logout</a></li>
+        </ul>
+        </nav>';
+        }
+        else
+        {
+                echo "<ul><li><a href='signup.html'>signup</a></li>
+                <li><a href='login.php'>login</a></li></ul>";
+        }
+        ?>
+
+<section id="main">
 <?php
-include('connect.php');
-$query="select *from user";
+include('requests/dbConn.php');
+$query="select * from user";
 $result=mysql_query($query);
 $num=mysql_numrows($result);
 mysql_close();
@@ -92,7 +104,7 @@ $f8 = mysql_result($result, $i,"isAdmin");
 <input type="text" name='username[]'  value = <?php echo "$f1"; ?> >
 </td>
 <td>
-<input type="text" name='password[]' value = <?php echo "$f2"; ?> >
+<input type="text" name='password[]'  value = <?php echo "$f2"; ?> >
 </td>
 <td>
 <input type="text" name='color[]' value = <?php echo "$f3"; ?> >
@@ -119,8 +131,10 @@ $f8 = mysql_result($result, $i,"isAdmin");
 //                 <p><input type='submit' name='submit' value='login'></p>"
 $i++;}
 ?>
-
 <p><input type="submit" name="submit" value="save"></p>
  </form>
+ </table>
+ </section>
+ </div>
 </body>
 </html>

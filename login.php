@@ -8,7 +8,7 @@
         <!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
 <link rel="stylesheet" href="assets/css/main.css?<?php echo time(); ?>" />    </head>
     <body>
-              
+ 	<?php session_write_close(); ?>             
         <div id="wrapper">
         <nav id="nav">
             <ul>
