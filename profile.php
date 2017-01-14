@@ -5,28 +5,43 @@
         <title>profile</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
-<link rel="stylesheet" href="assets/css/main.css?<?php echo time(); ?>" />    </head>
+<link rel="stylesheet" href="assets/css/main.css?<?php echo time(); ?>" />    
+</head>
     <body>
 
     <div id="wrapper">
-          <nav id="nav">
-            <ul>
-            <li><a href="index.php">Home</a></li>&emsp;&emsp;
-               <li><a href="profile.php">personal profile</a></li>&emsp;&emsp;
-               <li><a href="changepw.php">change password</a></li>&emsp;&emsp;
-               <li><a href="snippet.php">snippet</a></li>
-               &emsp;&emsp;
-               <li><a href="upload.php">upload</a></li>
-               <li style="float:right; margin-right: 2em;"><a href="login.php">logout</a></li>
-          </ul>
-          </nav>
+          <?php
+        session_start();
+        $a = $_SESSION['views'];
+
+        if ($_SESSION["views"]){
+                echo
+                '<nav id="nav">
+                <ul>
+                 <li><a href="index.php">Home</a></li>&emsp;&emsp;
+                 <li><a href="profile.php?userID='.$a.'">personal profile</a></li>&emsp;&emsp;
+         <li><a href="changepw.php?userID='.$a.'">change password</a></li>&emsp;&emsp;
+         <li><a href="snippet.php?userID='.$a.'">snippet</a></li>&emsp;&emsp;
+         <li><a href="upload.php?userID='.$a.'">upload</a></li>
+         <li><a href="admin.php?userID='.$a.'">Admin</a></li>
+        <li style="float:right; margin-right:2em;"><a href="logout.php">logout</a></li>
+        </ul>
+        </nav>';
+        }
+        else
+        {
+                echo "<ul><li><a href='signup.html'>signup</a></li>
+                <li><a href='login.php'>login</a></li></ul>";
+        }
+        ?>
         <h1 style="text-align:center; margin-top: 1em;">profile</h1>
       <section id="main">
     	<?PHP
             header("Content-Type: text/html; charset=utf8");
           	session_start();
         	$id =$_SESSION['views'];
-            include('connect.php');
+            
+            include('dbConn.php');            
             $sql = "select * from user where id = $id";
             $result = mysql_query($sql);//执行sql
             $array = mysql_fetch_array($result);//
@@ -37,17 +52,22 @@
             $snippet = $array["snippet"];
 
              // $_SESSION['views'] = mysql_fetch_array($idresult)["id"];//session = 7
-        
-           	echo "<form action='profile.php' method='post'>";
-           	echo "<p>username:<input type='text' name='username' value = '$username'></p>";
-           	echo "<p>iconURL <input type='text' name='iconURL' value = '$iconURL'></p>";   
-           	echo "<p>color <input type='text' name='color' value = '$color'></p>";
-           	echo "<p>pageURL:<input type='text' name='pageURL' value = '$pageURL'></p>";
-           	echo "<p>snippet:<input type='text' name='snippet' value = '$snippet'></p>";
-           	echo "<p><input type='submit' name='submit' value='save'></p>";
-            echo "<a href='welcome.html'>back</a>";
+        if($_SESSION['views'] == $query['userID'])
+           	echo '<form action="profile.php" method="post">';
+           	echo '<p>username:<input type="text" name="username" value = "$username"></p>';
+           	echo '<p>iconURL <input type="text" name="iconURL" value = "$iconURL"></p>';   
+           	echo '<p>color <input type="text" name="color" value = "$color"></p>';
+           	echo '<p>pageURL:<input type="text" name="pageURL" value = "$pageURL"></p>';
+           	echo '<p>snippet:<input type="text" name="snippet" value = "$snippet"></p>';
+           	echo '
+            <input type="hidden" name="userID" value="'.$_SESSION['views'].'">
+            
+              <input type="submit" name="submit" value="Submit"></p>';
+            echo "<a href='index.html'>back</a>
+            </form>";
 
-            include('connect.php');
+
+             include('requests/dbConn.php');
             $username=$_POST['username'];
             $iconURL=$_POST['iconURL'];
             $pageURL=$_POST['pageURL'];
