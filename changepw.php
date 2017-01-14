@@ -87,7 +87,7 @@
                     else
                     {
                         // echo "registration successful";
-                        header("refresh:0;url=index.html");
+                        header("refresh:0;url=index.php");
                          echo "<script type=\"text/javascript\">"."alert('saved');"."</script>";
                     }
                 }
