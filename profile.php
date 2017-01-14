@@ -70,16 +70,19 @@
 
              // $_SESSION['views'] = mysql_fetch_array($idresult)["id"];//session = 7
         if($_SESSION['views'] == $query['userID'])
-           	echo '<form action="profile.php" method="post">';
-           	echo '<p>username:<input type="text" name="username" value = $username></p>';
-           	echo '<p>iconURL <input type="text" name="iconURL" value = $iconURL></p>';   
-           	echo '<p>color <input type="text" name="color" value = $color></p>';
-           	echo '<p>pageURL:<input type="text" name="pageURL" value = $pageURL></p>';
-           	echo '<p>snippet:<input type="text" name="snippet" value = $snippet></p>';
-           	echo '
+            
+            ?>
+           <form action="profile.php" method="post">';
+           <p>username:<input type="text" name="username" value =<?php echo "$username"; ?> ></p>
+           <p>iconURL <input type="text" name="iconURL" value = <?php echo "$iconURL"; ?> ></p>
+           <p>color <input type="text" name="color" value =<?php echo "$color"; ?> ></p>
+           <p>pageURL:<input type="text" name="pageURL" value = <?php echo "$pageURL"; ?> ></p>
+           <p>snippet:<input type="text" name="snippet" value = <?php echo "$snippet"; ?> ></p>
+           
             <input type="hidden" name="userID" value="'.$_SESSION['views'].'">
             
-              <input type="submit" name="submit" value="Submit"></p>';
+              <input type="submit" name="submit" value="Submit"></p>
+          <?php
             echo "<a href='index.html'>back</a>
             </form>";
 
