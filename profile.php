@@ -66,7 +66,8 @@
             echo "<a href='index.html'>back</a>
             </form>";
 
-            include('dbConn.php');
+
+             include('requests/dbConn.php');
             $username=$_POST['username'];
             $iconURL=$_POST['iconURL'];
             $pageURL=$_POST['pageURL'];

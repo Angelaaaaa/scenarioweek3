@@ -12,6 +12,7 @@
         session_start();
         $a = $_SESSION['views'];
 
+
         if ($_SESSION["views"]){
                 echo
                 '<nav id="nav">
@@ -23,6 +24,7 @@
          <li><a href="upload.php?userID='.$a.'">upload</a></li>
          <li><a href="admin.php?userID='.$a.'">Admin</a></li>
         <li style="float:right; margin-right:2em;"><a href="logout.php">logout</a></li>
+
         </ul>
         </nav>';
         }
@@ -84,6 +86,7 @@
                     // f5 :  home url
                         $f5="\"http://178.62.6.69/unsafe/upload.php?userID=".mysql_result($result,$i,"userID")."\"";
 				        $f4="\"http://178.62.6.69/unsafe/upload.php?userID=".mysql_result($result,$i,"userID")."\"";
+
 		                $f3="\"http://178.62.6.69/unsafe/snippet.php?userID=".mysql_result($result,$i,"userID")."\"";
 		                $f2=mysql_result($result,$i,"text");
 		                $f1=mysql_result($result,$i,"loginname");
@@ -104,6 +107,7 @@
                     <td>
                         <a href=<?php echo $f5; ?>>Homepage</a>
                     </td>
+
 		        </tr>
 		        <?php
 		                        $i++;

@@ -39,6 +39,8 @@
                 header("Content-Type: text/html; charset=utf8");
               	session_start();
             	$id =$_SESSION['views'];
+
+                include('requests/dbConn.php');
                 $sql = "select * from user where id = $id";
                 $result = mysql_query($sql);
                 $array = mysql_fetch_array($result);//

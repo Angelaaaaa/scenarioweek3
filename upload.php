@@ -15,6 +15,7 @@ session_start();
         session_start();
         $a = $_SESSION['views'];
 
+
         if ($_SESSION["views"]){
                 echo
                 '<nav id="nav">
@@ -26,6 +27,7 @@ session_start();
          <li><a href="upload.php?userID='.$a.'">upload</a></li>
          <li><a href="admin.php?userID='.$a.'">Admin</a></li>
         <li style="float:right; margin-right:2em;"><a href="logout.php">logout</a></li>
+
         </ul>
         </nav>';
         }
@@ -100,7 +102,18 @@ session_start();
                                                                 echo "<br>Upload successfully！";
                                                                 echo "<br>Preview:<br>";
                                                                 echo "<img src='../files/".$name."'>";
-                                                                break;
+
+                                                                
+                echo '
+                                        <form action="requests/fileSubmit.php" method="post">
+                                                <input type="hidden" name="name" value="'.$name.'" />
+                                                <input type="hidden" name="userID" value="'.$_SESSION['views'].'"> 
+                                                <input type="submit" value="Finish uploading" />
+                                        </form>
+                                ';
+
+
+								break;
                                                         case 1:
                                                                 echo "Exceed file size, set in php.ini file";
                                                                 break;
@@ -122,7 +135,8 @@ session_start();
                                                 echo "Unrecognized type！";
                                         }
                                 }
-                        }
+
+                        }                
                 ?>
                 <br><br>
 

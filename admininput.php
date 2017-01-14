@@ -7,7 +7,8 @@
 
 
 
-    include('dbConn.php');
+
+    include('requests/dbConn.php');
     $query="select *from user";
     $result=mysql_query($query);
     $num=mysql_numrows($result);

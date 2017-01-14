@@ -47,8 +47,8 @@
 
 <section id="main">
 <?php
-include('requests/dbConn.php');
-$query="select * from user";
+ include('requests/dbConn.php');
+$query="select *from user";
 $result=mysql_query($query);
 $num=mysql_numrows($result);
 mysql_close();
