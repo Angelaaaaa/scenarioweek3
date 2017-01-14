@@ -24,7 +24,12 @@ $('.button').click(function() {
 	<?php 
 	session_start();
 	$a = $_SESSION['views'];
-	echo "$a";
+// 	echo "$a";
+	
+	if($_SESSION['admin']){
+		echo    
+		'<a href="admin.php">Admin Page</a>';
+	}
 
 	if ($_SESSION["views"]){
 		echo    
