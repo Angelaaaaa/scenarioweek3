@@ -100,14 +100,14 @@
             else
             {
                 // echo "registration successful";
-                header("refresh:0;url=login.html");
+                header("refresh:0;url=index.php");
                  echo "<script type=\"text/javascript\">".
                 "alert('sign up successfully');".
                 "</script>";
             }
         ?>
 
-     <a href="index.html">back</a>
+     <a href="index.php">back</a>
      </section>
      </div>
     </body>
