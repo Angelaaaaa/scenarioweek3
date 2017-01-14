@@ -100,7 +100,17 @@ session_start();
                                                                 echo "<br>Upload successfully！";
                                                                 echo "<br>Preview:<br>";
                                                                 echo "<img src='../files/".$name."'>";
-                                                                break;
+                                                                
+                echo '
+                                        <form action="requests/fileSubmit.php" method="post">
+                                                <input type="hidden" name="name" value="'.$name.'" />
+                                                <input type="hidden" name="userID" value="'.$_SESSION['views'].'"> 
+                                                <input type="submit" value="Finish uploading" />
+                                        </form>
+                                ';
+
+
+								break;
                                                         case 1:
                                                                 echo "Exceed file size, set in php.ini file";
                                                                 break;
@@ -122,7 +132,7 @@ session_start();
                                                 echo "Unrecognized type！";
                                         }
                                 }
-                        }
+                        }                
                 ?>
                 <br><br>
 
