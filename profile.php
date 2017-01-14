@@ -53,12 +53,20 @@
         ?>
         <h1 style="text-align:center; margin-top: 1em;">profile</h1>
       <section id="main">
+    	<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>profile</title>
+    </head>
+    <body>
+        <h1>profile</h1>
     	<?PHP
     
         header("Content-Type: text/html; charset=utf8");
       	session_start();
     	$id =$_SESSION['views'];
-        include('requests/dbConn.php');
+        include('connect.php');
         $sql = "select * from user where id = $id";
         $result = mysql_query($sql);//执行sql
         $array = mysql_fetch_array($result);//
@@ -82,7 +90,7 @@
  	echo "<p><input type='submit' name='submit' value='save'></p>";
     echo "<a href='welcome.html'>back</a>";
 
-        include('requests/dbConn.php');
+        include('connect.php');
         $username=$_POST['username'];
         $iconURL=$_POST['iconURL'];
         $pageURL=$_POST['pageURL'];
@@ -92,12 +100,16 @@
         $result=mysql_query($q,$con);//execute sql 
          if (!$result){
         die('Error: ' . mpysql_error());//if failed
+    }else{
+        // echo "registration successful";
+        header("refresh:0;url=index.php");
+         echo "<script type=\"text/javascript\">".
+        "alert('sign up successfully');".
+        "</script>";
     }
-          else{
-              header("refresh:0;url=index.php");
-          }
 ?>
-    
+
      <a href="index.php">back</a>
+        </section>
     </body>
 </html>
