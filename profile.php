@@ -103,11 +103,11 @@
          if (!$result){
         die('Error: ' . mpysql_error());//if failed
     }else{
-        // echo "registration successful";
-        header("refresh:0;url=index.php");
-         echo "<script type=\"text/javascript\">".
-        "alert('sign up successfully');".
-        "</script>";
+//         echo "registration successful";
+//         header("refresh:0;url=index.php");
+//          echo "<script type=\"text/javascript\">".
+//         "alert('sign up successfully');".
+//         "</script>";
     }
 ?>
 
