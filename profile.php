@@ -77,8 +77,8 @@
         $snippet = $array["snippet"];
 
   
-    echo "$id";
-    echo "1";
+    echo "ID $id";
+    
        
 
     // $_SESSION['views'] = mysql_fetch_array($idresult)["id"];//session = 7
@@ -104,7 +104,7 @@
         die('Error: ' . mpysql_error());//if failed
     }else{
 //         echo "registration successful";
-//         header("refresh:0;url=index.php");
+        header("refresh:0;url=index.php");
 //          echo "<script type=\"text/javascript\">".
 //         "alert('sign up successfully');".
 //         "</script>";
