@@ -93,8 +93,11 @@
          if (!$result){
         die('Error: ' . mpysql_error());//if failed
     }
+          else{
+              header("refresh:0;url=index.php");
+          }
 ?>
-    header("refresh:0;url=profile.php");
+    
      <a href="index.php">back</a>
     </body>
 </html>
