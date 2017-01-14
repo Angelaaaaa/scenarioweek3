@@ -90,7 +90,7 @@
             $pageURL=$_POST['pageURL'];
             $snippet=$_POST['snippet'];
             $color=$_POST['color'];
-            $q = "update user set username = $username, iconURL = $iconURL, pageURL = $pageURL, snippet = $snippet, color = $color WHERE id = $id;";
+            $q = "update user set username = '$username', iconURL = '$iconURL', pageURL = '$pageURL', snippet = '$snippet', color = '$color' WHERE id = $id;";
             $result=mysql_query($q,$con);//execute sql 
             
             if (!$result)
