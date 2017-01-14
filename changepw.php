@@ -76,7 +76,7 @@
                 if($oldpassword!= ""){
                 if($oldpassword == $password)
                 {
-                    $q = "update user set password = $newpassword where id = $id;";
+                    $q = "update user set password = '$newpassword' where id = $id;";
                     $result=mysql_query($q,$con);//execute sql 
                  
                     if (!$result)
