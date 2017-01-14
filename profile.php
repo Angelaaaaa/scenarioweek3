@@ -77,7 +77,9 @@
         $snippet = $array["snippet"];
 
   
-
+    echo "$id";
+    echo "1";
+       
 
     // $_SESSION['views'] = mysql_fetch_array($idresult)["id"];//session = 7
     
