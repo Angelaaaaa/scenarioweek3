@@ -17,20 +17,36 @@
         $a = $_SESSION['views'];
 
         if ($_SESSION["views"]){
+            if($_SESSION['admin']){
+                echo    
+                '<nav id="nav">
+                        <ul>
+                         <li><a href="index.php">Home</a></li>&emsp;&emsp;
+                         <li><a href="profile.php?userID='.$a.'">personal profile</a></li>&emsp;&emsp;
+                 <li><a href="changepw.php?userID='.$a.'">change password</a></li>&emsp;&emsp;
+                 <li><a href="snippet.php?userID='.$a.'">snippet</a></li>&emsp;&emsp;
+                 <li><a href="upload.php?userID='.$a.'">upload</a></li>
+                 <li><a href="admin.php?userID='.$a.'">Admin</a></li>
+                <li style="float:right; margin-right:2em;"><a href="logout.php">logout</a></li>
+
+                </ul>
+                </nav>';
+            } else {
                 echo
                 '<nav id="nav">
                 <ul>
                  <li><a href="index.php">Home</a></li>&emsp;&emsp;
                  <li><a href="profile.php?userID='.$a.'">personal profile</a></li>&emsp;&emsp;
-         <li><a href="changepw.php?userID='.$a.'">change password</a></li>&emsp;&emsp;
-         <li><a href="snippet.php?userID='.$a.'">snippet</a></li>&emsp;&emsp;
-         <li><a href="upload.php?userID='.$a.'">upload</a></li>
-         <li><a href="admin.php?userID='.$a.'">Admin</a></li>
-        <li style="float:right; margin-right:2em;"><a href="logout.php">logout</a></li>
+                 <li><a href="changepw.php?userID='.$a.'">change password</a></li>&emsp;&emsp;
+                 <li><a href="snippet.php?userID='.$a.'">snippet</a></li>&emsp;&emsp;
+                 <li><a href="upload.php?userID='.$a.'">upload</a></li>
+                <li style="float:right; margin-right:2em;"><a href="logout.php">logout</a></li>
 
-        </ul>
-        </nav>';
-        }
+                </ul>
+                </nav>';
+            
+                }
+            }
         else
         {
                 echo "<ul><li><a href='signup.html'>signup</a></li>
