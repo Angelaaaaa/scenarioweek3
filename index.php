@@ -27,6 +27,10 @@
 
         </ul>
         </nav>';
+		if($_SESSION['admin']){
+		echo    
+		'<a href="admin1.php">admin page</a>';
+	}
         }
         else
         {
