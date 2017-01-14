@@ -25,7 +25,7 @@
                          <li><a href="profile.php?userID='.$a.'">personal profile</a></li>&emsp;&emsp;
                  <li><a href="changepw.php?userID='.$a.'">change password</a></li>&emsp;&emsp;
                  <li><a href="snippet.php?userID='.$a.'">snippet</a></li>&emsp;&emsp;
-                 <li><a href="upload.php?userID='.$a.'">upload</a></li>
+                 <li><a href="upload.php?userID='.$a.'">upload</a></li>&emsp;&emsp;
                  <li><a href="admin.php?userID='.$a.'">Admin</a></li>
                 <li style="float:right; margin-right:2em;"><a href="logout.php">logout</a></li>
 
