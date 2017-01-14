@@ -111,5 +111,6 @@
 
      <a href="index.php">back</a>
         </section>
+    </div>
     </body>
 </html>
