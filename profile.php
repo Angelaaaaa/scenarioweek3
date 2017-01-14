@@ -94,7 +94,7 @@
         die('Error: ' . mpysql_error());//if failed
     }else{
         // echo "registration successful";
-        header("refresh:0;url=login.html");
+        header("refresh:0;url=profile.php");
          echo "<script type=\"text/javascript\">".
         "alert('successful');".
         "</script>";
