@@ -58,7 +58,7 @@
           	session_start();
         	$id =$_SESSION['views'];
             
-            include('dbConn.php');            
+            include('requests/dbConn.php');            
             $sql = "select * from user where id = $id";
             $result = mysql_query($sql);//执行sql
             $array = mysql_fetch_array($result);//
