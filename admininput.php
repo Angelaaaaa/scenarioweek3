@@ -7,7 +7,8 @@
 
 
 
-    include('connect.php');
+
+    include('requests/dbConn.php');
     $query="select *from user";
     $result=mysql_query($query);
     $num=mysql_numrows($result);
@@ -66,7 +67,7 @@
         // echo "registration successful";//成功输出注册成功
     mysql_close($con);//关闭数据库
     
-       header("refresh:0;url=admin1.php");
+       header("refresh:0;url=admin.php");
 
        //   echo "<script type=\"text/javascript\">".
        //  "alert('sign up successfully');".
