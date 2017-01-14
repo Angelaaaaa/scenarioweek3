@@ -82,7 +82,7 @@
  	echo "<p><input type='submit' name='submit' value='save'></p>";
     echo "<a href='welcome.html'>back</a>";
 
-        include('connect.php');
+        include('requests/dbConn.php');
         $username=$_POST['username'];
         $iconURL=$_POST['iconURL'];
         $pageURL=$_POST['pageURL'];
