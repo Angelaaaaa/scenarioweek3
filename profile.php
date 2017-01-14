@@ -66,7 +66,7 @@
         header("Content-Type: text/html; charset=utf8");
       	session_start();
     	$id =$_SESSION['views'];
-        include('connect.php');
+        include('requests/dbConn.php');
         $sql = "select * from user where id = $id";
         $result = mysql_query($sql);//执行sql
         $array = mysql_fetch_array($result);//
@@ -88,9 +88,9 @@
  	echo "<p>pageURL:<input type='text' name='pageURL' value = '$pageURL'></p>";
  	echo "<p>snippet:<input type='text' name='snippet' value = '$snippet'></p>";
  	echo "<p><input type='submit' name='submit' value='save'></p>";
-    echo "<a href='welcome.html'>back</a>";
+    echo "<a href='index.php'>back</a>";
 
-        include('connect.php');
+        include('requests/dbConn.php');
         $username=$_POST['username'];
         $iconURL=$_POST['iconURL'];
         $pageURL=$_POST['pageURL'];
