@@ -21,10 +21,13 @@
              if($rows)
              {
                     session_start();
+                    
                     $fetchid = "select id from user where loginname = '$name'";
-                   
+                    $fetchAdmin = "select isAdmin from user where loginname = '$name'";
                     $idresult=mysql_query($fetchid);
+                    $adminresult = mysql_query($fetchAdmin);
                     $_SESSION['views'] = mysql_fetch_array($idresult)["id"];//
+                    $_SESSION['admin'] = mysql_fetch_array($adminresult)["isAdmin"];
                     header("refresh:0;url=../index.php");
                    exit;
              }
