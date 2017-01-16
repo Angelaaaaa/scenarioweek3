@@ -6,10 +6,14 @@
         exit("error");
     }
 
+    include('dbConn.php');
+
     $name=$_POST['name'];
     $password=$_POST['password'];
+    $name= mysql_real_escape_string($name);
+    $password = mysql_real_escape_string($password);
 
-    include('dbConn.php');
+    
   
     $q="insert into user(id,loginname,password,username,iconURL,pageURL,color,snippet) values (null,'$name','$password','','','','','')";
     $result=mysql_query($q,$con);

@@ -64,6 +64,10 @@
                     <?php
                         $parts = parse_url($_SERVER['REQUEST_URI']);
                         parse_str($parts['query'], $query);
+                        $i = 0;
+                        while($query['userID'][$i]>='0' && $query['userID'][i]<='9' && i<10)
+                            $i++;
+                        $query['userID'] = substr($query['userID'], 0, $i);
                         if($_SESSION['views'] == $query['userID'])
                             echo '
                                 <form name="login" action="requests/snippetSubmit.php" method="post">
@@ -82,8 +86,20 @@
                     <br><br>
                     <script>
                         url = window.location.href;
+                        str = url.substring(url.indexOf("userID=")+7);
+                        var userID = "";
+
+                        for(i=0; i<str.length; i++)
+                            if(str.charAt(i)>='0' && str.charAt(i)<='9')
+                                userID = userID + str.charAt(i);
+                            else
+                                break;
+                        str = decodeURIComponent(str.replace(/\+/g, " "));
+                        userID = decodeURIComponent(userID.replace(/\+/g, " "));
+                        console.log(userID);
+
                         $.post("requests/getSnippet.php",{
-                            userID: url.substring(url.indexOf("userID=")+7)
+                            userID: userID
                         }).done(function( response ) {
                             $("#response").html(response);
                         });    

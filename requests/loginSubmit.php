@@ -1,6 +1,6 @@
 <?PHP
     header("Content-Type: text/html; charset=utf8");
-    echo "\ninside of loginSubmit!\n";
+    echo "<br>inside of loginSubmit!<br>";
     if(!isset($_POST["submit"]))
     {
         exit("error");
@@ -8,14 +8,17 @@
   
     include('dbConn.php');
     $name = $_POST['name'];
-    $passowrd = $_POST['password'];
+    $password = $_POST['password'];
     echo $name;
-    echo "\n";
+    echo "<br>";
     echo $password;
-    echo  "\n";		
-    if ($name && $passowrd)
+    echo  "<br>";	
+    if ($name && $password)
     {
-             $sql = "select * from user where loginname = '$name' and password='$passowrd'";
+             $name= mysql_real_escape_string($name);
+             $password = mysql_real_escape_string($password);
+             echo $name."<br>".$password;
+             $sql = "select * from user where loginname = '$name' and password='$password'";
              $result = mysql_query($sql);
              $rows=mysql_num_rows($result);
              if($rows)

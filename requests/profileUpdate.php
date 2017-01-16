@@ -12,20 +12,27 @@
     include('dbConn.php');
 
     session_start();
+
+    $username = htmlspecialchars(mysql_real_escape_string($_POST['username']));
+    $color=htmlspecialchars(mysql_real_escape_string($_POST['color']));
+    $iconURL=htmlspecialchars(mysql_real_escape_string($_POST['iconURL']));
+    $pageURL=htmlspecialchars(mysql_real_escape_string($_POST['pageURL']));
+    $snippet=htmlspecialchars(mysql_real_escape_string($_POST['snippet']));
     
     $q = '
         SELECT *
         FROM user
-        WHERE loginname = "'.$_POST['username'].'" 
+        WHERE loginname = "'.$username.'" 
         AND id <> "'.$_SESSION['views'].'"
     ';
+
     $result=mysql_query($q,$con);
     if(mysql_num_rows($result)>0)
     {
         exit("Username ".$username." already exists");
     }
 
-    $q = 'UPDATE user SET loginname = "'. $_POST['username'] .'", iconURL = "'.$_POST['iconURL'].'", pageURL = "'.$_POST['pageURL'].'", snippet = "'.$_POST['snippet'].'", color = "'.$_POST['color'].'" WHERE id = "'.$_SESSION['views'].'"';
+    $q = 'UPDATE user SET loginname = "'. $username .'", iconURL = "'.$iconURL.'", pageURL = "'.$pageURL.'", snippet = "'.$snippet.'", color = "'.$color.'" WHERE id = "'.$_SESSION['views'].'"';
     $result=mysql_query($q,$con);
     if (!$result)
     {

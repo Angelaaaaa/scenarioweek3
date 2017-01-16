@@ -57,7 +57,8 @@
             ?>
             <?php
                 include('requests/dbConn.php');
-                $query="
+                
+		$query="
                     SELECT u.loginname, s.userID, s.time, s.text, u.pageURL 
                     FROM snippets s, user u 
                     WHERE s.userID = u.id

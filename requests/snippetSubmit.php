@@ -5,12 +5,17 @@
         exit("error");
     }
     include('dbConn.php');
-    
 
-    $q="insert into snippets (text, userID) values (\"".$_POST['text']."\",\"".$_POST['userID']."\")";
+    $t = $_POST['text'];
+    $t = mysql_real_escape_string($t);
+    $t = htmlspecialchars($t);
+    $q = "insert into snippets (text, userID) values ('".$t."','".$_POST['userID']."')";
+
     $result=mysql_query($q,$con);
     if (!$result)
     {
+        echo $q;
+        echo "<br><br>";
         die('Error: ' . mysql_error());
     }
 

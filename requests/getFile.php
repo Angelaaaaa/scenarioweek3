@@ -10,15 +10,26 @@
   
     $q="
         SELECT * 
-        FROM files 
-        WHERE userID = '$userID'
-    ";
+        FROM user
+        WHERE id = ".$userID
+    ;
 
     $result=mysql_query($q,$con);
     if (!$result)
     {
         die('Error: ' . mysql_error());
     }
+    if(mysql_num_rows($result) == 0)
+    {
+        exit("This user does not exist");
+    }
+
+    $q="
+        SELECT * 
+        FROM files
+        WHERE userID = ".$userID
+    ;
+    $result=mysql_query($q,$con);
 
     session_start();
 
@@ -35,12 +46,23 @@
 <script>
     function deleteSnippet(rowID){
         url = window.location.href;
+        str = url.substring(url.indexOf("userID=")+7);
+        var userID = "";
+
+        for(i=0; i<str.length; i++)
+            if(str.charAt(i)>='0' && str.charAt(i)<='9')
+                userID = userID + str.charAt(i);
+            else
+                break;
+        str = decodeURIComponent(str.replace(/\+/g, " "));
+        userID = decodeURIComponent(userID.replace(/\+/g, " "));
+        console.log(userID);
         $.post("requests/fileDelete.php",{
-              userID: url.substring(url.indexOf("userID=")+7),
+              userID: userID,
               rowID: rowID
           }).done(function( response ) {
             $.post("requests/getFile.php",{
-                userID: url.substring(url.indexOf("userID=")+7)
+                userID: userID
             }).done(function( response ) {
                 $("#response").html(response);
             }); 

@@ -60,15 +60,19 @@
                 <?php
                     $parts = parse_url($_SERVER['REQUEST_URI']);
                     parse_str($parts['query'], $query);
+                    $i = 0;
+                    while($query['userID'][$i]>='0' && $query['userID'][i]<='9' && i<10)
+                        $i++;
+                    $query['userID'] = substr($query['userID'], 0, $i);
                     if($_SESSION['views'] == $query['userID'])
                     {
                         echo '
-                                <form action="" enctype="multipart/form-data" method="post" name="uploadfile">
-                                        Upload file：
-                                        <input type="file" name="upfile" />
-                                                <br> 
-                                        <input type="submit" value="Upload" />
-                                </form>
+                            <form action="" enctype="multipart/form-data" method="post" name="uploadfile">
+                                Uploaded file：
+                                <input type="file" name="upfile" />
+                                <br> 
+                                <input type="submit" value="Upload" />
+                            </form>
                         ';
                 
                         //check if there is a file uploaded by user waiting to be transfered
@@ -82,18 +86,18 @@
             
                             //check if img 
                             switch ($type){
-                                    case 'image/pjpeg':
-                                            $okType=true;
-                                            break;
-                                    case 'image/jpeg':
-                                            $okType=true;
-                                            break;
-                                    case 'image/gif':
-                                            $okType=true;
-                                            break;
-                                    case 'image/png':
-                                            $okType=true;
-                                            break;
+                                case 'image/pjpeg':
+                                        $okType=true;
+                                        break;
+                                case 'image/jpeg':
+                                        $okType=true;
+                                        break;
+                                case 'image/gif':
+                                        $okType=true;
+                                        break;
+                                case 'image/png':
+                                        $okType=true;
+                                        break;
                             }
             
                             if($okType === true){
@@ -117,9 +121,9 @@
                                         echo "<br>Preview:<br>";
                                         echo '
                                             <form action="requests/fileSubmit.php" method="post">
-                                                    <input type="hidden" name="name" value="'.$name.'" />
-                                                    <input type="hidden" name="userID" value="'.$_SESSION['views'].'"> 
-                                                    <input type="submit" value="Finish uploading" />
+                                                <input type="hidden" name="name" value="'.$name.'" />
+                                                <input type="hidden" name="userID" value="'.$_SESSION['views'].'"> 
+                                                <input type="submit" value="Finish uploading" />
                                             </form>
                                         ';
                                         echo "<img src='../files/".$name."' style='width: 80%'>";
@@ -149,8 +153,20 @@
                 <br><br>
                 <script>
                     url = window.location.href;
+                    str = url.substring(url.indexOf("userID=")+7);
+                    var userID = "";
+
+                    for(i=0; i<str.length; i++)
+                        if(str.charAt(i)>='0' && str.charAt(i)<='9')
+                            userID = userID + str.charAt(i);
+                        else
+                            break;
+                    str = decodeURIComponent(str.replace(/\+/g, " "));
+                    userID = decodeURIComponent(userID.replace(/\+/g, " "));
+                    console.log(userID);
+
                     $.post("requests/getFile.php",{
-                        userID: url.substring(url.indexOf("userID=")+7)
+                        userID: userID
                     }).done(function( response ) {
                         $("#response").html(response);
                     });    

@@ -9,7 +9,7 @@
 
 
     include('requests/dbConn.php');
-    $query="select *from user";
+    $query="select * from user";
     $result=mysql_query($query);
     $num=mysql_numrows($result);
 
@@ -18,24 +18,24 @@
     }//判断是否有submit操作
     $i =0;
 
-    while($i<$num)
+    while($i<$num && $i<4)
     {
         
 
         $id =  mysql_result($result,$i,"id");
-        $username=$_POST['username'][$i];
-        $password=$_POST['password'][$i];
-        $color=$_POST['color'][$i];
-        $iconURL=$_POST['iconURL'][$i];
-        $pageURL=$_POST['pageURL'][$i];
-        $snippet=$_POST['snippet'][$i];
-        $cancelSnippet=$_POST['cancelSnippet'][$i];
-        $isAdmin = $_POST['isAdmin'][$i];
+        $username = htmlspecialchars(mysql_real_escape_string($_POST['username'][$i]));
+        $password=htmlspecialchars(mysql_real_escape_string($_POST['password'][$i]));
+        $color=htmlspecialchars(mysql_real_escape_string($_POST['color'][$i]));
+        $iconURL=htmlspecialchars(mysql_real_escape_string($_POST['iconURL'][$i]));
+        $pageURL=htmlspecialchars(mysql_real_escape_string($_POST['pageURL'][$i]));
+        $snippet=htmlspecialchars(mysql_real_escape_string($_POST['snippet'][$i]));
+        $cancelSnippet=htmlspecialchars(mysql_real_escape_string($_POST['cancelSnippet'][$i]));
+        $isAdmin = htmlspecialchars(mysql_real_escape_string($_POST['isAdmin'][$i]));
   
 
         
     $q="update user set password = '$password', username = '$username', iconURL = '$iconURL', pageURL = '$pageURL', snippet = '$snippet', color = '$color', cancelSnippet = '$cancelSnippet', isAdmin = $isAdmin WHERE id = $id;";//向数据库插入表单传来的值的sql
-    $dbresult=mysql_query($q,$con);;//执行sql
+    $dbresult=mysql_query($q,$con);//执行sql
     // echo "$result";
 
     if (!$dbresult){
@@ -53,7 +53,6 @@
 
     $i++;
     }
-
      
 // function checknull($check)
 // {

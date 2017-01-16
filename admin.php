@@ -81,8 +81,8 @@
                             $i=0;
                             while ($i < $num) 
                             {
-                                $f1=mysql_result($result,$i,"loginname");
-                                $f2=mysql_result($result,$i,"password");
+                                $f1 = mysql_result($result,$i,"loginname");
+                                $f2 = mysql_result($result,$i,"password");
                                 $f3 = mysql_result($result, $i,"color");
                                 $f4 = mysql_result($result, $i,"iconURL");
                                 $f5 = mysql_result($result, $i,"pageURL");

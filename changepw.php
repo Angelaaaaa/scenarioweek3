@@ -70,8 +70,8 @@
                  	echo "<p>new password<input type='text' name='newpassword'></p>";   
                  	echo "<p><input type='submit' name='submit' value='save'></p>";
 
-                    $oldpassword=$_POST['oldpassword'];
-                    $newpassword=$_POST['newpassword'];
+                    $oldpassword = htmlspecialchars(mysql_real_escape_string($_POST['oldpassword']));
+                    $newpassword = htmlspecialchars(mysql_real_escape_string($_POST['newpassword']));
 
                     if($oldpassword!= "")
                     {
